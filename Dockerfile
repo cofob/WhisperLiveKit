@@ -16,13 +16,13 @@ RUN apt-get update && \
         ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --upgrade pip setuptools wheel && \
+RUN pip3 install --break-system-packages --upgrade pip setuptools wheel && \
     pip3 --disable-pip-version-check install --timeout=120 --retries=5 \
         --index-url https://download.pytorch.org/whl/cu129 \
         torch torchaudio
 
-RUN pip install 'git+https://github.com/NVIDIA/NeMo.git@main#egg=nemo_toolkit[asr]' 'megatron-core[mlm,dev]'
-RUN pip install --no-cache-dir whisperlivekit
+RUN pip install --break-system-packages 'git+https://github.com/NVIDIA/NeMo.git@main#egg=nemo_toolkit[asr]'
+RUN pip install --break-system-packages --no-cache-dir whisperlivekit
 
 EXPOSE 8000
 

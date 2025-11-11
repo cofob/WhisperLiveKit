@@ -1,0 +1,13 @@
+services:
+  whisper:
+    build: .
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    volumes:
+      - ./cache:/root/.cache
