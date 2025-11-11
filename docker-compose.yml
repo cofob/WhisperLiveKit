@@ -9,5 +9,7 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
+    ports:
+      - 8000:8000
     volumes:
       - ./cache:/root/.cache

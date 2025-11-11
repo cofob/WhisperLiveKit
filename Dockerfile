@@ -21,6 +21,7 @@ RUN pip3 --disable-pip-version-check install --break-system-packages --timeout=1
         torch torchaudio
 
 RUN pip install --break-system-packages 'git+https://github.com/NVIDIA/NeMo.git@main#egg=nemo_toolkit[asr]'
+RUN pip install --break-system-packages faster-whisper
 RUN pip install --break-system-packages --no-cache-dir whisperlivekit
 
 EXPOSE 8000
