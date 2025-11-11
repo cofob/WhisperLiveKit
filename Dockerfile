@@ -16,8 +16,7 @@ RUN apt-get update && \
         ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --break-system-packages --upgrade pip setuptools wheel && \
-    pip3 --disable-pip-version-check install --timeout=120 --retries=5 \
+RUN pip3 --disable-pip-version-check install --timeout=120 --retries=5 \
         --index-url https://download.pytorch.org/whl/cu129 \
         torch torchaudio
 
